@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Calendar, Kanban, MessageSquare, FileText, Settings, User } from 'lucide-react';
+import { Calendar, FileText, Home, Kanban, MessageSquare, Settings, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const NavItem = ({ 
@@ -38,7 +38,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   const navItems = [
-    { to: '/', icon: Kanban, label: 'Dashboard' },
+    { to: '/dashboard', icon: Home, label: 'Dashboard' },
     { to: '/kanban', icon: Kanban, label: 'Kanban' },
     { to: '/parser', icon: FileText, label: 'Documentos' },
     { to: '/messages', icon: MessageSquare, label: 'Mensagens' },
@@ -59,12 +59,12 @@ const Sidebar = () => {
     >
       <div className="p-4 flex items-center justify-between border-b border-gray-200">
         {!isCollapsed && (
-          <h1 className="text-xl font-semibold text-cotai-purple">CotAI</h1>
+          <Link to="/" className="text-xl font-semibold text-cotai-purple">CotAI</Link>
         )}
         {isCollapsed && (
-          <div className="mx-auto">
+          <Link to="/" className="mx-auto">
             <span className="text-xl font-bold text-cotai-purple">C</span>
-          </div>
+          </Link>
         )}
         <button 
           onClick={() => setIsCollapsed(!isCollapsed)} 
