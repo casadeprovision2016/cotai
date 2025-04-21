@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        // Custom colors for CotAI
+        cotai: {
+          purple: {
+            DEFAULT: '#9b87f5',
+            light: '#d6bcfa',
+            dark: '#7E69AB',
+          },
+          gray: {
+            dark: '#222222',
+            neutral: '#8E9196',
+            light: '#F1F1F1',
+          },
+          blue: {
+            DEFAULT: '#33C3F0',
+            dark: '#1EAEDB',
+          }
+        }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +102,42 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        // Custom keyframes for macOS-like animations
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fade-in 0.3s ease-in-out',
+        'slide-up': 'slide-up 0.3s ease-out'
+			},
+      fontFamily: {
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          'Oxygen',
+          'Ubuntu',
+          'Cantarell',
+          '"Fira Sans"',
+          '"Droid Sans"',
+          '"Helvetica Neue"',
+          'sans-serif',
+        ],
+      },
+      boxShadow: {
+        'mac': '0 2px 10px rgba(0, 0, 0, 0.05)',
+        'mac-lg': '0 5px 20px rgba(0, 0, 0, 0.1)',
+      }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
